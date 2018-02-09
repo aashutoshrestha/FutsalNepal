@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.blackspring.com.futsalnepal.presentation.dashboard.DashboardView">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/floating_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_leftActionMode="showHamburger"
+            app:floatingSearch_menu="@menu/menu_main"
+            app:floatingSearch_searchBarMarginLeft="@dimen/_4sdp"
+            app:floatingSearch_searchBarMarginRight="@dimen/_4sdp"
+            app:floatingSearch_searchBarMarginTop="@dimen/_2sdp"
+            app:floatingSearch_searchHint="Futsal Nepal"
+            app:floatingSearch_showSearchKey="true"
+            app:floatingSearch_suggestionsListAnimDuration="250" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:id="@+id/linearLayout">
+
+        <net.gotev.speech.ui.SpeechProgressView
+            android:id="@+id/progress"
+            android:layout_width="120dp"
+            android:layout_height="150dp"/>
+
+    </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_view_option"
+        android:layout_width="match_parent"
+        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabSelectedTextColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+    <android.support.v4.view.ViewPager
+        android:layout_below="@+id/tl_view_option"
+        android:id="@+id/vp_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
+</RelativeLayout>

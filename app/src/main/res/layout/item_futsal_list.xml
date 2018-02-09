@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_futsal_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="Champions Futsal"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/tv_futsal_rating_text"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_below="@+id/tv_futsal_name"
+            android:paddingLeft="@dimen/_12sdp"
+            android:text="4.5" />
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/rb_futsal_rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_futsal_name"
+            android:layout_toRightOf="@id/tv_futsal_rating_text"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="3.5" />
+
+        <TextView
+            android:id="@+id/tv_futsal_distance"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_futsal_name"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_toRightOf="@id/rb_futsal_rating"
+            android:text="- 5 KM" />
+
+        <TextView
+            android:id="@+id/tv_futsal_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rb_futsal_rating"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_12sdp"
+            android:text="Imadol - Lalitpur" />
+        <TextView
+            android:id="@+id/tv_futsal_open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_futsal_address"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_12sdp"
+            android:text="Open - Closed at 9:00PM" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv_futsal_cover"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_margin="@dimen/_12sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/futsal" />
+
+    <View
+        android:background="@color/divider"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</RelativeLayout>
