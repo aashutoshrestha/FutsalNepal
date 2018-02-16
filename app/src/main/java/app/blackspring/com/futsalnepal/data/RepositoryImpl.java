@@ -1,5 +1,7 @@
 package app.blackspring.com.futsalnepal.data;
 
+import android.content.Context;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import app.blackspring.com.futsalnepal.data.cloud.ApiConfig;
@@ -18,9 +20,9 @@ public class RepositoryImpl implements Repository {
     private Network network;
     private LocalStorage localStorage;
 
-    public RepositoryImpl() {
+    public RepositoryImpl(Context context) {
         this.network = new NetworkImpl();
-        this.localStorage = new LocalStorageImpl();
+        this.localStorage = LocalStorageImpl.getInstance(context);
 
     }
 
@@ -55,7 +57,8 @@ public class RepositoryImpl implements Repository {
 
     @Override
     public Observable<String> getFutsalList(String latitude, String longitude) {
-        if (localStorage.getData(ApiConfig.GET_FUTSAL_LIST) != null) {
+        if (localStorage.getData(ApiConfig.GET_FUTSAL_LIST) != null
+                && localStorage.getData(ApiConfig.GET_FUTSAL_LIST).length() > 10) {
             return Observable.just(localStorage.getData(ApiConfig.GET_FUTSAL_LIST));
         } else {
             return network.getFutsalList(latitude, longitude);

@@ -1,5 +1,7 @@
 package app.blackspring.com.futsalnepal.presentation.dashboard;
 
+import android.content.Context;
+
 import app.blackspring.com.futsalnepal.model.futsal.FutsalData;
 
 /**
@@ -10,9 +12,9 @@ public class DashboardPresenter implements DashboardContract.Presenter {
     private DashboardContract.View view;
     private DashboardContract.Model model;
 
-    public DashboardPresenter(DashboardContract.View view) {
+    public DashboardPresenter(DashboardContract.View view, Context context) {
         this.view = view;
-        model = new DashboardModel(this);
+        model = new DashboardModel(this, context);
     }
 
     @Override

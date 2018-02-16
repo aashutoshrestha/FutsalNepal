@@ -1,5 +1,6 @@
 package app.blackspring.com.futsalnepal.presentation.navigation;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -30,8 +31,8 @@ public class NavigationModel implements NavigationContract.Model {
     private PolylineOptions lineOptions = null;
     private PublishSubject<PolylineOptions> optionsPublishSubject;
 
-    public NavigationModel() {
-        navigationUseCase = new NavigationImpl();
+    public NavigationModel(Context context) {
+        navigationUseCase = new NavigationImpl(context);
         optionsPublishSubject = PublishSubject.create();
     }
 

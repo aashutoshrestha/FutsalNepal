@@ -1,5 +1,7 @@
 package app.blackspring.com.futsalnepal.presentation.login;
 
+import android.content.Context;
+
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.Task;
@@ -15,8 +17,8 @@ public class LoginPresenter implements LoginContract.Presenter {
     private LoginModel model;
     private LoginContract.View view;
 
-    public LoginPresenter(LoginContract.View view) {
-        model = new LoginModel(this);
+    public LoginPresenter(LoginContract.View view, Context context) {
+        model = new LoginModel(this, context);
         this.view = view;
     }
 

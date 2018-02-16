@@ -66,7 +66,7 @@ public class LoginView extends AppCompatActivity implements
                 .requestEmail()
                 .build();
 
-        presenter = new LoginPresenter(this);
+        presenter = new LoginPresenter(this, this);
 
         presenter.checkSession();
 

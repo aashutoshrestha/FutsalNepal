@@ -1,5 +1,7 @@
 package app.blackspring.com.futsalnepal.presentation.dashboard;
 
+import android.content.Context;
+
 import app.blackspring.com.futsalnepal.domain.futsallist.FutsalListImpl;
 import app.blackspring.com.futsalnepal.domain.futsallist.FutsalListUseCase;
 import app.blackspring.com.futsalnepal.model.futsal.FutsalData;
@@ -12,9 +14,9 @@ public class DashboardModel implements DashboardContract.Model {
     private DashboardContract.Presenter presenter;
     private FutsalListUseCase futsalListUseCase;
 
-    public DashboardModel(DashboardContract.Presenter presenter) {
+    public DashboardModel(DashboardContract.Presenter presenter, Context context) {
         this.presenter = presenter;
-        futsalListUseCase = new FutsalListImpl();
+        futsalListUseCase = new FutsalListImpl(context);
     }
 
     @Override

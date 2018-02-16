@@ -37,7 +37,7 @@ public class NavigationView extends AppCompatActivity implements OnMapReadyCallb
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        presenter = new NavigationPresenter();
+        presenter = new NavigationPresenter(this);
 
         try {
             MapsInitializer.initialize(getApplicationContext());

@@ -1,5 +1,7 @@
 package app.blackspring.com.futsalnepal.domain.login;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 
 import app.blackspring.com.futsalnepal.data.Repository;
@@ -16,8 +18,8 @@ import rx.schedulers.Schedulers;
 public class LoginImpl implements LoginUseCase {
     private Repository repository;
     private Gson gson;
-    public LoginImpl() {
-        repository = new RepositoryImpl();
+    public LoginImpl(Context context) {
+        repository = new RepositoryImpl(context);
         gson = new Gson();
     }
 

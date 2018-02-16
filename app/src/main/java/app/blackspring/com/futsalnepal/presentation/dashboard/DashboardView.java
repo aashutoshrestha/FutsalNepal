@@ -62,7 +62,7 @@ public class DashboardView extends AppCompatActivity implements
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
-        presenter = new DashboardPresenter(this);
+        presenter = new DashboardPresenter(this, this);
 
 
         viewOption = findViewById(R.id.tl_view_option);

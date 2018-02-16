@@ -1,5 +1,6 @@
 package app.blackspring.com.futsalnepal.presentation.login;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.facebook.GraphRequest;
@@ -23,9 +24,9 @@ public class LoginModel implements LoginContract.Model {
     private LoginContract.Presenter presenter;
     private LoginUseCase loginUseCase;
 
-    public LoginModel(LoginContract.Presenter loginPresenter) {
+    public LoginModel(LoginContract.Presenter loginPresenter, Context context) {
         presenter = loginPresenter;
-        loginUseCase = new LoginImpl();
+        loginUseCase = new LoginImpl(context);
     }
 
     @Override

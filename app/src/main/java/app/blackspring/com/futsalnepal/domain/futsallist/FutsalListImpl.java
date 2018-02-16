@@ -1,5 +1,7 @@
 package app.blackspring.com.futsalnepal.domain.futsallist;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 
 import app.blackspring.com.futsalnepal.data.Repository;
@@ -18,8 +20,8 @@ import rx.schedulers.Schedulers;
 public class FutsalListImpl implements FutsalListUseCase {
     private Repository repository;
     private Gson gson;
-    public FutsalListImpl() {
-        repository = new RepositoryImpl();
+    public FutsalListImpl(Context context) {
+        repository = new RepositoryImpl(context);
         gson = new Gson();
     }
 

@@ -1,5 +1,7 @@
 package app.blackspring.com.futsalnepal.domain.navigation;
 
+import android.content.Context;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import app.blackspring.com.futsalnepal.data.Repository;
@@ -14,8 +16,8 @@ public class NavigationImpl implements NavigationUseCase{
 
     Repository repository;
 
-    public NavigationImpl() {
-        repository = new RepositoryImpl();
+    public NavigationImpl(Context context) {
+        repository = new RepositoryImpl(context);
     }
 
     @Override
