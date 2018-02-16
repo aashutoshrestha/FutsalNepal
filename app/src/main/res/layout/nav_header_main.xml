@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_140sdp"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:padding="@dimen/_14sdp"
+    android:background="@color/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <TextView
+        android:textSize="@dimen/_16sdp"
+        android:gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Utsav Shrestha"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:textSize="@dimen/_12sdp"
+        android:gravity="start"
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bookings Made: 10" />
+
+</LinearLayout>

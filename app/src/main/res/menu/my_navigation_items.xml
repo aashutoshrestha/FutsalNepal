@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="User">
+        <menu>
+            <item
+                android:id="@+id/pending_booking"
+                android:icon="@drawable/ic_access_time_black_24dp"
+                android:title="Pending Bookings" />
+
+            <item
+                android:id="@+id/booking_history"
+                android:icon="@drawable/ic_access_time_black_24dp"
+                android:title="Booking History" />
+        </menu>
+    </item>
+
+    <item
+        android:enabled="false"
+        android:title="Owner">
+        <menu>
+            <item
+                android:id="@+id/register_item"
+                android:icon="@drawable/ic_access_time_black_24dp"
+                android:title="Register your ground" />
+            <item
+                android:visible="false"
+                android:id="@+id/edit_ground_details"
+                android:icon="@drawable/ic_access_time_black_24dp"
+                android:title="Edit ground details" />
+
+            <item
+                android:visible="false"
+                android:id="@+id/send_notification"
+                android:icon="@drawable/ic_access_time_black_24dp"
+                android:title="Send Notification to players" />
+        </menu>
+    </item>
+</menu>

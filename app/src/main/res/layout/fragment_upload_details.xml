@@ -1,0 +1,98 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="app.blackspring.com.futsalnepal.presentation.fragments.UploadDetails">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="start"
+            android:padding="@dimen/_14sdp"
+            android:text="Enter Details for Your \nFutsal Ground."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_14sdp"
+            android:paddingRight="@dimen/_14sdp"
+            android:paddingTop="@dimen/_4sdp">
+
+            <EditText
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Futsal Name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_14sdp"
+            android:paddingRight="@dimen/_14sdp"
+            android:paddingTop="@dimen/_4sdp">
+
+            <EditText
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_14sdp"
+            android:paddingRight="@dimen/_14sdp"
+            android:paddingTop="@dimen/_14sdp">
+
+            <EditText
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weekend Price" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_14sdp"
+            android:paddingRight="@dimen/_14sdp"
+            android:paddingTop="@dimen/_4sdp">
+
+            <EditText
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weekdays Price" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_opening_time"
+            android:textSize="@dimen/_12sdp"
+            android:paddingLeft="@dimen/_17sdp"
+            android:paddingRight="@dimen/_14sdp"
+            android:paddingTop="@dimen/_24sdp"
+            android:hint="Opening Time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="@dimen/_12sdp"
+            android:paddingLeft="@dimen/_17sdp"
+            android:paddingRight="@dimen/_14sdp"
+            android:paddingTop="@dimen/_14sdp"
+            android:hint="Closing Time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</ScrollView>

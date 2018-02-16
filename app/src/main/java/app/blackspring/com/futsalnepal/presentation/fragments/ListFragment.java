@@ -1,5 +1,6 @@
 package app.blackspring.com.futsalnepal.presentation.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,13 +12,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import app.blackspring.com.futsalnepal.R;
+import app.blackspring.com.futsalnepal.model.futsal.FutsalData;
 import app.blackspring.com.futsalnepal.presentation.details.DetailsView;
 import app.blackspring.com.futsalnepal.presentation.adapter.FutsalListAdapter;
-
+@SuppressLint("ValidFragment")
 public class ListFragment extends Fragment {
 
     private RecyclerView futsalList;
     private FutsalListAdapter futsalListAdapter;
+    private  FutsalData futsalData;
+
+    public ListFragment() {
+    }
+
+    public ListFragment(FutsalData futsalData) {
+        this.futsalData = futsalData;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +52,7 @@ public class ListFragment extends Fragment {
 
         futsalListAdapter = new FutsalListAdapter(position -> {
             startActivity(new Intent(getActivity(), DetailsView.class));
-        });
+        }, futsalData.getFutsalList());
 
         futsalListAdapter.getSubject().subscribe(position-> {
                 startActivity(new Intent(getActivity(), DetailsView.class));

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "607873988498",
+    "firebase_url": "https://futsal-1c799.firebaseio.com",
+    "project_id": "futsal-1c799",
+    "storage_bucket": "futsal-1c799.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607873988498:android:af5f080ee3be7992",
+        "android_client_info": {
+          "package_name": "app.blackspring.com.futsalnepal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607873988498-cram87nj1v9nj6nvppmguek5culeda9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeOXDQjyDd3hWQpQB7K7Wc6CgyRjWogMY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

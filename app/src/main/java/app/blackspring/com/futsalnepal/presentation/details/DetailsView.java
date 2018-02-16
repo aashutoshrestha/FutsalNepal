@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import app.blackspring.com.futsalnepal.R;
-import app.blackspring.com.futsalnepal.domain.navigation.Navigation;
 import app.blackspring.com.futsalnepal.presentation.adapter.GroundsRVAdapter;
 import app.blackspring.com.futsalnepal.presentation.adapter.ViewPagerAdapter;
 import app.blackspring.com.futsalnepal.presentation.fragments.BookingFragment;

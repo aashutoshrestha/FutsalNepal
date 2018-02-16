@@ -1,12 +1,8 @@
 package app.blackspring.com.futsalnepal.presentation.navigation;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.json.JSONException;
@@ -17,13 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 
 import app.blackspring.com.futsalnepal.R;
-import app.blackspring.com.futsalnepal.domain.navigation.Navigation;
+import app.blackspring.com.futsalnepal.domain.navigation.NavigationImpl;
 import app.blackspring.com.futsalnepal.domain.navigation.NavigationUseCase;
 import app.blackspring.com.futsalnepal.presentation.utils.DirectionsJsonParser;
-import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
@@ -37,7 +31,7 @@ public class NavigationModel implements NavigationContract.Model {
     private PublishSubject<PolylineOptions> optionsPublishSubject;
 
     public NavigationModel() {
-        navigationUseCase = new Navigation();
+        navigationUseCase = new NavigationImpl();
         optionsPublishSubject = PublishSubject.create();
     }
 
