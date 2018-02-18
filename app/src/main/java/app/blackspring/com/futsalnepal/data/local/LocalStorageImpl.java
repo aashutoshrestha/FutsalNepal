@@ -40,6 +40,6 @@ public class LocalStorageImpl implements LocalStorage{
 
     @Override
     public String getData(String propertyName) {
-        return preferences.getString(propertyName, "");
+        return preferences.getString(propertyName, null);
     }
 }

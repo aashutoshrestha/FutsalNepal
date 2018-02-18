@@ -23,8 +23,8 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public LoginData loginUser(String name, String email, int phoneNumber, String deviceToken) {
-        return null;
+    public void loginUser(String name, String email, int phoneNumber, String deviceToken) {
+        model.loginUser(name, email, phoneNumber, deviceToken);
     }
 
     @Override
@@ -38,13 +38,25 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void onLoginSuccess(String email, String name) {
-        view.onLoggedIn(email, name);
+    public void onEmailFetched(String email, String name) {
+        view.onEmailFetched(email, name);
     }
 
     @Override
-    public void onLoginFailed(Exception e) {
-        view.onFailure(e);
+    public void onEmailError(Exception e) {
+        view.onEmailError(e);
+    }
+
+    @Override
+    public void onLoggedIn(LoginData data) {
+        if(data.isSuccess()){
+            view.onLoggedIn(data);
+        }
+    }
+
+    @Override
+    public void onLoginError() {
+            view.onLoginError();
     }
 
     @Override

@@ -5,11 +5,14 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -29,6 +32,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import org.json.JSONException;
@@ -37,8 +41,8 @@ import org.json.JSONObject;
 import java.util.Arrays;
 
 import app.blackspring.com.futsalnepal.R;
+import app.blackspring.com.futsalnepal.model.login.LoginData;
 import app.blackspring.com.futsalnepal.presentation.dashboard.DashboardView;
-import app.blackspring.com.futsalnepal.presentation.navigation.NavigationView;
 import app.blackspring.com.futsalnepal.presentation.utils.Utils;
 
 public class LoginView extends AppCompatActivity implements
@@ -50,14 +54,17 @@ public class LoginView extends AppCompatActivity implements
     private LoginPresenter presenter;
     private CallbackManager callbackManager;
     private View rootView;
+    String deviceToken;
+    String email, name;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        sessionExists("");
+
+        deviceToken = FirebaseInstanceId.getInstance().getToken();
 
 
         rootView = getWindow().getDecorView().getRootView();
-
 
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
@@ -69,7 +76,6 @@ public class LoginView extends AppCompatActivity implements
         presenter = new LoginPresenter(this, this);
 
         presenter.checkSession();
-
 
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -114,6 +120,7 @@ public class LoginView extends AppCompatActivity implements
             presenter.handleGoogleSignIn(task);
         }
     }
+
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -132,13 +139,14 @@ public class LoginView extends AppCompatActivity implements
 
     //Todo: Ask and verify phone number
     @Override
-    public void onLoggedIn(String email, String name) {
+    public void onEmailFetched(String email, String name) {
+        this.email = email;
+        this.name = name;
         showPhoneNumberDialog();
-        //startActivity(new Intent(this, DashboardView.class));
     }
 
     @Override
-    public void onFailure(Exception e) {
+    public void onEmailError(Exception e) {
         Utils.showSnackBar(rootView, e.getMessage());
     }
 
@@ -147,11 +155,32 @@ public class LoginView extends AppCompatActivity implements
         startActivity(new Intent(this, DashboardView.class));
     }
 
-    private void showPhoneNumberDialog(){
+    @Override
+    public void onLoggedIn(LoginData data) {
+    }
+
+    @Override
+    public void onLoginError() {
+
+    }
+
+    private void showPhoneNumberDialog() {
         getSmsPermission();
         Dialog dialog = new Dialog(this, R.style.Theme_AppCompat_DayNight_NoActionBar);
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_phone_number);
+        TextInputLayout phoneNumberLayout = dialog.findViewById(R.id.phoneNumberLayout);
+        EditText phoneNumber = dialog.findViewById(R.id.phoneNumber);
+
+        Button verfiy = dialog.findViewById(R.id.btn_verify);
+
+        verfiy.setOnClickListener(view -> {
+           if(phoneNumber.getText().toString().length() < 10) {
+               phoneNumberLayout.setError("Please Enter a valid phone number");
+           } else {
+               presenter.loginUser(name, email, Integer.parseInt(phoneNumber.getText().toString()), deviceToken);
+           }
+        });
         dialog.show();
     }
 

@@ -30,17 +30,27 @@ public class LoginModel implements LoginContract.Model {
     }
 
     @Override
-    public LoginData loginUser(String name, String email, int phoneNumber, String deviceToken) {
-        return null;
+    public void loginUser(String name, String email, int phoneNumber, String deviceToken) {
+         loginUseCase.loginUser(name, email, phoneNumber, deviceToken, new LoginUseCase.CallBack() {
+            @Override
+            public void onLoggedIn(LoginData data) {
+                presenter.onLoggedIn(data);
+            }
+
+            @Override
+            public void onFailure(String data) {
+                presenter.onEmailError(null);
+            }
+        });
     }
 
     @Override
     public void handleGoogleSignIn(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            presenter.onLoginSuccess(account.getEmail(), account.getDisplayName());
+            presenter.onEmailFetched(account.getEmail(), account.getDisplayName());
         } catch (ApiException e) {
-            presenter.onLoginFailed(e);
+            presenter.onEmailError(e);
         }
     }
 
@@ -55,11 +65,11 @@ public class LoginModel implements LoginContract.Model {
 
                         String email = object.getString("email");
 
-                        presenter.onLoginSuccess(email, name);
+                        presenter.onEmailFetched(email, name);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        presenter.onLoginFailed(e);
+                        presenter.onEmailError(e);
                     }
                 });
         Bundle parameters = new Bundle();

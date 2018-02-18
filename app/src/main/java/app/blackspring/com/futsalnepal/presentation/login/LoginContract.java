@@ -12,24 +12,29 @@ import app.blackspring.com.futsalnepal.model.login.LoginData;
 
 public interface LoginContract {
     interface View {
-        void onLoggedIn(String email, String name);
-        void onFailure(Exception e);
+        void onEmailFetched(String email, String name);
+        void onEmailError(Exception e);
         void sessionExists(String user_id);
+        void onLoggedIn(LoginData data);
+        void onLoginError();
     }
 
     interface Model {
-        LoginData loginUser(String name, String email, int phoneNumber, String deviceToken);
+        void loginUser(String name, String email, int phoneNumber, String deviceToken);
         void handleGoogleSignIn(Task<GoogleSignInAccount> completedTask);
         void handleFacebookSignIn(LoginResult loginResult);
         String checkSession();
     }
 
     interface Presenter {
-        LoginData loginUser(String name, String email, int phoneNumber, String deviceToken);
+        void loginUser(String name, String email, int phoneNumber, String deviceToken);
         void handleGoogleSignIn(Task<GoogleSignInAccount> completedTask);
         void handleFacebookSignIn(LoginResult loginResult);
-        void onLoginSuccess(String email, String name);
-        void onLoginFailed(Exception e);
+        void onEmailFetched(String email, String name);
+        void onEmailError(Exception e);
+        void onLoggedIn(LoginData data);
+        void onLoginError();
         void checkSession();
+
     }
 }
